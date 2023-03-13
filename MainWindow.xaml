@@ -1,0 +1,28 @@
+﻿<Window x:Class="travelAgency2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:travelAgency2"
+        WindowState="Maximized"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Туристическое агентство &quot;Райский берег&quot;" Height="830" Width="1550" Icon="/иконка приложения.png">
+
+    <Grid Background="#FFCEFFFC">
+        <Border MinWidth="400" Margin="15" Background="#A5D3F8" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="#D4EAFC" ShadowDepth="0"></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Туристическое агентство" FontSize="30" FontWeight="Bold" Margin="0 0 0 0" TextAlignment="Center"></TextBlock>
+                <TextBlock Text="АВТОРИЗАЦИЯ" FontSize="15" FontWeight="Thin" Margin="0 0 0 0" TextAlignment="Center" FontFamily="Segoe UI" Foreground="#FF673AB7"/>
+                <Button Content="Сменить пароль" Margin="0 20 0 0" Click="Button_Changing_Pass_Click" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand"></Button>
+                <TextBox x:Name="loginTextBox" Margin="0 0 0 0" materialDesign:HintAssist.Hint="Введите логин" FontSize="16" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <PasswordBox x:Name="passBox" Margin="0 0 0 20" materialDesign:HintAssist.Hint="Введите пароль" FontSize="16" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"></PasswordBox>
+                <Button Content="Войти" Margin="0 20" Click="Button_Auth_Click" IsDefault="True"></Button>
+            </StackPanel>
+        </Border>
+        <Button x:Name="ExitButton"  Content="Выход из системы" Click="Exit_Button_Click"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand"></Button>
+    </Grid>
+</Window>
