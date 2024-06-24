@@ -1,5 +1,8 @@
 # TravelAgency
 
 запуск через докер:
-docker-compose build
-docker-compose up
+1. docker-compose build
+2. docker-compose up
+3. в docker desktop появится контейнер travelagency
+
+
