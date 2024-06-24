@@ -93,7 +93,7 @@
 
 	async function fetchEmployees() {
         try {
-            const response = await fetch(`https://localhost:7242/api/Employee/Employees`);
+            const response = await fetch(`http://localhost:5000/api/Employee/Employees`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -117,7 +117,7 @@
 
         try {
             const response = 
-                await fetch(`https://localhost:7242/api/Employee/EmployeesSearch/?surname=${surname}&name=${name}&patronymic=${patronymic}&birthDate=${birthDate}`);
+                await fetch(`http://localhost:5000/api/Employee/EmployeesSearch/?surname=${surname}&name=${name}&patronymic=${patronymic}&birthDate=${birthDate}`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -145,10 +145,10 @@
             phoneNumber: phoneAdd
         }
         try {
-        const response = await fetch("https://localhost:7242/api/Employee", {
+        const response = await fetch("http://localhost:5000/api/Employee", {
             method: "POST",
             headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify(newEmployee)
         });
@@ -159,10 +159,10 @@
                     idEmployee: result
                 }
                 try {
-                    const response = await fetch('https://localhost:7242/api/EmployeeData', {
+                    const response = await fetch('http://localhost:5000/api/EmployeeData', {
                     method: 'POST',
                     headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json; charset=utf-8'
                     },
                     body: JSON.stringify(newEmployeeData)
                 });
@@ -189,7 +189,7 @@
         closeModalAdd();
   }
   async function deleteEmployee(employeeId) {
-        const response = await fetch(`https://localhost:7242/api/Employee/${employeeId}`, {
+        const response = await fetch(`http://localhost:5000/api/Employee/${employeeId}`, {
             method: 'DELETE'
         });
 
@@ -212,10 +212,10 @@
             post: postUpd,
             phoneNumber: phoneUpd
         }
-        fetch(`https://localhost:7242/api/Employee/${idUpd}`, {
+        fetch(`http://localhost:5000/api/Employee/${idUpd}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
         },
         body: JSON.stringify(updEmployee),
         })
@@ -540,7 +540,7 @@
             </form>
         </div>
         <div class="overflow-x-auto">
-            <table class="table table-zebra w-full">
+            <table class="table">
                 <thead>
                 <tr>
                     <th class="text-center">Фамилия</th>

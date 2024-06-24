@@ -155,7 +155,7 @@
 
 	async function fetchTourists() {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tourist/Tourists`);
+            const response = await fetch(`http://localhost:5000/api/Tourist/Tourists`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -178,7 +178,7 @@
         birthDate = document.getElementById('dateBox').value;
 
         try {
-            const response = await fetch(`https://localhost:7242/api/Tourist/TouristsSearch/?surname=${surname}&name=${name}&patronymic=${patronymic}&birthDate=${birthDate}`);
+            const response = await fetch(`http://localhost:5000/api/Tourist/TouristsSearch/?surname=${surname}&name=${name}&patronymic=${patronymic}&birthDate=${birthDate}`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -209,10 +209,10 @@
         }
 
         try {
-        const response = await fetch("https://localhost:7242/api/Tourist", {
+        const response = await fetch("http://localhost:5000/api/Tourist", {
             method: "POST",
             headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify(newTourist)
         });
@@ -231,10 +231,10 @@
                     birthCertificateNumber: birthCertAdd
                 }
                 try {
-                    const response = await fetch('https://localhost:7242/api/TouristData', {
+                    const response = await fetch('http://localhost:5000/api/TouristData', {
                     method: 'POST',
                     headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json; charset=utf-8'
                     },
                     body: JSON.stringify(newTouristData)
                 });
@@ -260,7 +260,7 @@
         closeModalAdd();
   }
   async function deleteTourist(touristId) {
-        const response = await fetch(`https://localhost:7242/api/Tourist/${touristId}`, {
+        const response = await fetch(`http://localhost:5000/api/Tourist/${touristId}`, {
             method: 'DELETE'
         });
 
@@ -287,10 +287,10 @@
         }
 
         try {
-        const response = await fetch(`https://localhost:7242/api/Tourist/${idUpd}`, {
+        const response = await fetch(`http://localhost:5000/api/Tourist/${idUpd}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8',
             },
             body: JSON.stringify(updTourist),
         })
@@ -307,10 +307,10 @@
                 birthCertificateNumber: birthCertUpd
             }
             try {
-                const response = await fetch(`https://localhost:7242/api/TouristData/${idDataUpd}`, {
+                const response = await fetch(`http://localhost:5000/api/TouristData/${idDataUpd}`, {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json; charset=utf-8',
                     },
                     body: JSON.stringify(updTouristData),
                 })
@@ -363,7 +363,7 @@
         document.getElementById('genderBoxUpd').value = genderUpd = tourist.gender;
         idUpd = tourist.idTourist;
 
-        fetch(`https://localhost:7242/api/Tourist/${idUpd}/Data`)
+        fetch(`http://localhost:5000/api/Tourist/${idUpd}/Data`)
             .then(async response => {
                 if (response.ok) {
                     const result = await response.json();
@@ -848,7 +848,7 @@
         <button class="btn btn-accent tour-constructor" on:click={getSelectedTourists}>Перейти к конструктору тура</button>
         {/if}
         <div class="overflow-x-auto">
-            <table class="table table-zebra w-full">
+            <table class="table">
                 <thead>
                 <tr>
                     {#if post === 'Администратор'}

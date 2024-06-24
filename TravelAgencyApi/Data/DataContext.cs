@@ -10,7 +10,7 @@ namespace TravelAgencyApi.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=root;database=travelagencydb;SSL Mode=None");
+            optionsBuilder.UseMySQL("server=sql8.freemysqlhosting.net;port=3306;user=sql8715683;password=KcvgwVMrqi;database=sql8715683;SSL Mode=None");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

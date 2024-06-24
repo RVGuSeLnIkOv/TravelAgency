@@ -87,7 +87,7 @@
     }
 
     async function fetchCountries() {
-        fetch(`https://localhost:7242/api/Country/Countries`)
+        fetch(`http://localhost:5000/api/Country/Countries`)
             .then(response => {
                 if (response.ok) {
                 return response.json();
@@ -107,7 +107,7 @@
         document.getElementById('citySelect').selectedIndex = 0;
         document.getElementById('residenceSelect').selectedIndex = 0;
         residences = [];
-        fetch(`https://localhost:7242/api/Country/${selectedCountryId}/Cities`)
+        fetch(`http://localhost:5000/api/Country/${selectedCountryId}/Cities`)
             .then(response => {
                 if (response.ok) {
                 return response.json();
@@ -125,7 +125,7 @@
 
     async function fetchResidences(selectedCityId) {
         document.getElementById('residenceSelect').selectedIndex = 0;
-        fetch(`https://localhost:7242/api/City/${selectedCityId}/Residences`)
+        fetch(`http://localhost:5000/api/City/${selectedCityId}/Residences`)
             .then(response => {
                 if (response.ok) {
                 return response.json();
@@ -142,7 +142,7 @@
     }
 
     async function fetchTourOperators() {
-        fetch(`https://localhost:7242/api/TourOperator/TourOperators`)
+        fetch(`http://localhost:5000/api/TourOperator/TourOperators`)
             .then(response => {
                 if (response.ok) {
                 return response.json();
@@ -159,7 +159,7 @@
     }
 
     async function fetchTypesMeal() {
-        fetch(`https://localhost:7242/api/TypeMeal/TypesMeal`)
+        fetch(`http://localhost:5000/api/TypeMeal/TypesMeal`)
             .then(response => {
                 if (response.ok) {
                 return response.json();
@@ -190,13 +190,13 @@
         }
 
         const touristParams = tourists.map(tourist => `tourists=${encodeURIComponent(tourist.idTourist)}`).join('&');
-        const url = `https://localhost:7242/api/Tour?${touristParams}`;
+        const url = `http://localhost:5000/api/Tour?${touristParams}`;
 
         try {
         const response = await fetch(url, {
             method: "POST",
             headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify(tourCreate)
         });
@@ -215,10 +215,10 @@
                     date: formattedDate
                 };
                 try {
-                    const response = await fetch('https://localhost:7242/api/Booking', {
+                    const response = await fetch('http://localhost:5000/api/Booking', {
                     method: 'POST',
                     headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json; charset=utf-8'
                     },
                     body: JSON.stringify(bookingCreate)
                 });

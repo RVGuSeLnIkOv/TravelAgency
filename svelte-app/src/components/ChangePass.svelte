@@ -20,7 +20,7 @@
         clearStyle('passBoxRep');
         
         try {
-            const response = await fetch(`https://localhost:7242/api/EmployeeData/${login}`);
+            const response = await fetch(`http://localhost:5000/api/EmployeeData/${login}`);
 
             if (!response.ok) {
                 errorMessage = 'Ошибка при выполнении запроса';
@@ -41,10 +41,10 @@
             password: password
         };
 
-        fetch(`https://localhost:7242/api/EmployeeData/${id}`, {
+        fetch(`http://localhost:5000/api/EmployeeData/${id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(updateEmployeeData)
         })

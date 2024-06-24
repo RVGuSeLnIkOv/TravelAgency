@@ -64,7 +64,7 @@
 
     async function fetchBooking(idTour) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tour/${idTour}/Bookings`);
+            const response = await fetch(`http://localhost:5000/api/Tour/${idTour}/Bookings`);
 
             if (response.ok) {
                 return await response.json();
@@ -81,7 +81,7 @@
 
     async function fetchTourists(idTour) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tour/${idTour}/Tourists`);
+            const response = await fetch(`http://localhost:5000/api/Tour/${idTour}/Tourists`);
 
             if (response.ok) {
                 return await response.json();
@@ -98,7 +98,7 @@
 
     async function fetchTourist(idTourist) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tourist/${idTourist}`);
+            const response = await fetch(`http://localhost:5000/api/Tourist/${idTourist}`);
 
             if (response.ok) {
                 return await response.json();
@@ -115,7 +115,7 @@
 
     async function fetchEmployee(idEmployee) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Employee/${idEmployee}`);
+            const response = await fetch(`http://localhost:5000/api/Employee/${idEmployee}`);
 
             if (response.ok) {
                 return await response.json();
@@ -132,7 +132,7 @@
 
     async function fetchTouristData(idTourist) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tourist/${idTourist}/Data`);
+            const response = await fetch(`http://localhost:5000/api/Tourist/${idTourist}/Data`);
 
             if (response.ok) {
                 return await response.json();
@@ -149,7 +149,7 @@
 
     async function fetchResidence(idResidence) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Residence/${idResidence}`);
+            const response = await fetch(`http://localhost:5000/api/Residence/${idResidence}`);
 
             if (response.ok) {
                 return await response.json();
@@ -164,7 +164,7 @@
 
     async function fetchCity(idCity) {
         try {
-            const response = await fetch(`https://localhost:7242/api/City/${idCity}`);
+            const response = await fetch(`http://localhost:5000/api/City/${idCity}`);
 
             if (response.ok) {
                 return await response.json();
@@ -179,7 +179,7 @@
 
     async function fetchCountry(idCountry) {
         try {
-            const response = await fetch(`https://localhost:7242/api/Country/${idCountry}`);
+            const response = await fetch(`http://localhost:5000/api/Country/${idCountry}`);
 
             if (response.ok) {
                 return await response.json();
@@ -194,7 +194,7 @@
 
     async function fetchTourOperator(idTourOperator) {
         try {
-            const response = await fetch(`https://localhost:7242/api/TourOperator/${idTourOperator}`);
+            const response = await fetch(`http://localhost:5000/api/TourOperator/${idTourOperator}`);
 
             if (response.ok) {
                 return await response.json();
@@ -209,7 +209,7 @@
 
     async function fetchTypeMeal(idTypeMeal) {
         try {
-            const response = await fetch(`https://localhost:7242/api/TypeMeal/${idTypeMeal}`);
+            const response = await fetch(`http://localhost:5000/api/TypeMeal/${idTypeMeal}`);
 
             if (response.ok) {
                 return await response.json();
@@ -224,7 +224,7 @@
 
     async function fetchToursBookings() {
         try {
-            const response = await fetch(`https://localhost:7242/api/Tour/ActiveTours`);
+            const response = await fetch(`http://localhost:5000/api/Tour/ActiveTours`);
 
             if (response.ok) {
                 const toursData = await response.json();
@@ -360,10 +360,10 @@
         }
 
         try {
-            const response = await fetch(`https://localhost:7242/api/Tour/${tourBooking.idTour}/Archive`, {
+            const response = await fetch(`http://localhost:5000/api/Tour/${tourBooking.idTour}/Archive`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(deleteTour)
             });
@@ -419,11 +419,11 @@
                         <img src="/employee.png" alt="Сотрудники" class="icon" />
                         Сотрудники
                     </button>
-                    <button class="account active btn btn-ghost" on:click={toTouristsClick}>
+                    <button class="account btn btn-ghost" on:click={toTouristsClick}>
                         <img src="/tourist.png" alt="Туристы" class="icon" />
                         Туристы
                     </button>
-                    <button class="account btn btn-ghost" on:click={toToursBookingsClick}>
+                    <button class="account active btn btn-ghost" on:click={toToursBookingsClick}>
                         <img src="/word.png" alt="Туры и заказы" class="icon" />
                         Туры и заказы
                     </button>
@@ -459,7 +459,7 @@
         {/if}
 
         <div class="overflow-x-auto">
-            <table class="table table-zebra w-full">
+            <table class="table">
                 <thead>
                 <tr>
                     <th class="text-center">Город</th>

@@ -19,14 +19,14 @@
         clearStyle('passBox')
 
         try {
-            const response = await fetch(`https://localhost:7242/api/EmployeeData/Auth/${login}/${password}`);
+            const response = await fetch(`http://localhost:5000/api/EmployeeData/Auth/${login}/${password}`);
 
             if (response.ok) {
             const data = await response.json();
                 if (data > 0) {
                     idEmployee = data;
                     try {
-                        const response = await fetch(`https://localhost:7242/api/Employee/${idEmployee}`);
+                        const response = await fetch(`http://localhost:5000/api/Employee/${idEmployee}`);
 
                         if (response.ok) {
                             employee = await response.json();
