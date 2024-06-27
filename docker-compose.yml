@@ -4,10 +4,10 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: "KcvgwVMrqi"
-      MYSQL_DATABASE: "sql8715683"
-      MYSQL_USER: "sql8715683"
-      MYSQL_PASSWORD: "KcvgwVMrqi"
+      MYSQL_ROOT_PASSWORD: "1234567890"
+      MYSQL_DATABASE: "travelagencydb"
+      MYSQL_USER: "grrr_human"
+      MYSQL_PASSWORD: "1234567890"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
@@ -21,7 +21,7 @@ services:
       dockerfile: TravelAgencyApi/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sql8.freemysqlhosting.net;Database=sql8715683;User=sql8715683;Password=KcvgwVMrqi;
+      - ConnectionStrings__DefaultConnection=Server=db4free.net;Database=travelagencydb;User=grrr_human;Password=1234567890;
     depends_on:
       - mysql
     networks:
