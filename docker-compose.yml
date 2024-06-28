@@ -1,20 +1,4 @@
-version: '3.8'
-
 services:
-  mysql:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: "1234567890"
-      MYSQL_DATABASE: "travelagencydb"
-      MYSQL_USER: "grrr_human"
-      MYSQL_PASSWORD: "1234567890"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - backend
-    ports:
-      - "3306:3306"
-
   api:
     build:
       context: .
@@ -22,8 +6,6 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=db4free.net;Database=travelagencydb;User=grrr_human;Password=1234567890;
-    depends_on:
-      - mysql
     networks:
       - backend
     ports:
@@ -33,13 +15,12 @@ services:
     build:
       context: ./svelte-app
       dockerfile: Dockerfile
+    depends_on:
+      - api
     networks:
       - backend
     ports:
       - "3000:80"
-
-volumes:
-  mysql_data:
 
 networks:
   backend:
